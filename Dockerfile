@@ -16,4 +16,4 @@ COPY geckodriver /usr/local/bin/geckodriver
 RUN mkdir -p /work
 WORKDIR /work
 
-CMD ["bash", "-c", "echo 'Java:' ; java --version ; echo ; echo 'Maven:' ; mvn -version"]
+CMD ["bash", "-c", "echo 'Java:' ; java --version ; echo ; echo 'Maven:' ; mvn -version ; echo ; echo 'Firefox:' ; firefox --version"]
