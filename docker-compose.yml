@@ -1,0 +1,6 @@
+version: '3'
+
+services:
+  maven-build-container:
+    build: .
+    image: registry.gmasil.de/docker/maven-build-container:${TAG}
