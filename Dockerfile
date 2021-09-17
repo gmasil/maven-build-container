@@ -23,4 +23,6 @@ COPY geckodriver /usr/local/bin/geckodriver
 RUN mkdir -p /work
 WORKDIR /work
 
+RUN apt install -y gnupg2
+
 CMD ["bash", "-c", "echo 'Java:' ; java --version ; echo ; echo 'Maven:' ; mvn -version ; echo ; echo 'Git:' ; git --version ; echo ; echo 'Firefox:' ; firefox --version"]
