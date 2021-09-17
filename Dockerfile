@@ -1,9 +1,10 @@
 FROM ubuntu
 
-RUN apt update && apt upgrade -y && apt install -y \
+RUN apt update && apt upgrade -y && DEBIAN_FRONTEND="noninteractive" apt install -y \
     locales \
     openjdk-11-jdk \
     maven \
+    git \
     iceweasel \
     xvfb
 
@@ -22,4 +23,4 @@ COPY geckodriver /usr/local/bin/geckodriver
 RUN mkdir -p /work
 WORKDIR /work
 
-CMD ["bash", "-c", "echo 'Java:' ; java --version ; echo ; echo 'Maven:' ; mvn -version ; echo ; echo 'Firefox:' ; firefox --version"]
+CMD ["bash", "-c", "echo 'Java:' ; java --version ; echo ; echo 'Maven:' ; mvn -version ; echo ; echo 'Git:' ; git --version ; echo ; echo 'Firefox:' ; firefox --version"]
