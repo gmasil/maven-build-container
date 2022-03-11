@@ -1,10 +1,12 @@
 FROM ubuntu
 
 RUN apt update && apt upgrade -y && DEBIAN_FRONTEND="noninteractive" apt install -y \
+    software-properties-common \
     locales \
     openjdk-11-jdk \
     maven \
     git \
+    npm \
     iceweasel \
     xvfb \
     gnupg2 \
@@ -16,6 +18,10 @@ RUN sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen && locale-gen
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
+
+RUN npm install npm@latest -g && \
+    npm install n -g && \
+    n latest
 
 ENV DISPLAY=:99
 ENV WEBDRIVER_GECKO_DRIVER=/usr/local/bin/geckodriver
