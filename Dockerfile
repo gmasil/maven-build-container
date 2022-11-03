@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM debian
 
 RUN apt update && apt upgrade -y && DEBIAN_FRONTEND="noninteractive" apt install -y \
     software-properties-common \
@@ -7,7 +7,7 @@ RUN apt update && apt upgrade -y && DEBIAN_FRONTEND="noninteractive" apt install
     maven \
     git \
     npm \
-    iceweasel \
+    firefox-esr \
     xvfb \
     gnupg2 \
     curl \

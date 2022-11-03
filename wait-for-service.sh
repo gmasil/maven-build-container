@@ -28,7 +28,7 @@ for (( i=1; i <= ${RETRIES}; i++ )); do
   if [ "${VERBOSE}" == "true" ]; then
     echo "Checking... $i"
   fi
-  if [ "$(curl -s --max-time ${TIMEOUT} ${ENDPOINT} | jq -r '.status')" == "UP" ]; then
+  if [ $(curl -s -o /dev/null -w "%{http_code}" "${ENDPOINT}") == "200" ]; then
     STATUS="OK"
     break
   fi
