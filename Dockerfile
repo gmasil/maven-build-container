@@ -25,7 +25,7 @@ RUN npm install npm@latest -g && \
 
 ENV DISPLAY=:99
 ENV WEBDRIVER_GECKO_DRIVER=/usr/local/bin/geckodriver
-ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
 
 COPY geckodriver /usr/local/bin/geckodriver
 COPY wait-for-service.sh /usr/local/bin/wait-for-service.sh
