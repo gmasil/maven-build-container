@@ -3,7 +3,7 @@ FROM debian
 RUN apt update && apt upgrade -y && DEBIAN_FRONTEND="noninteractive" apt install -y \
     software-properties-common \
     locales \
-    openjdk-11-jdk \
+    openjdk-17-jdk \
     maven \
     git \
     npm \
