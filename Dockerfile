@@ -11,7 +11,8 @@ RUN apt update && apt upgrade -y && DEBIAN_FRONTEND="noninteractive" apt install
     xvfb \
     gnupg2 \
     curl \
-    jq
+    jq \
+    unzip
 
 RUN sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen && locale-gen
 
@@ -22,6 +23,14 @@ ENV LC_ALL en_US.UTF-8
 RUN npm install npm@latest -g && \
     npm install n -g && \
     n latest
+
+# install gradle
+RUN curl -O https://downloads.gradle.org/distributions/gradle-7.6.2-bin.zip && \
+    unzip gradle-7.6.2-bin.zip && \
+    rm gradle-7.6.2-bin.zip && \
+    mv gradle-7.6.2 /usr/local/bin/
+
+ENV PATH="$PATH:/usr/local/bin/gradle-7.6.2/bin"
 
 ENV DISPLAY=:99
 ENV WEBDRIVER_GECKO_DRIVER=/usr/local/bin/geckodriver
