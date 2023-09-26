@@ -20,9 +20,9 @@ ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 
-RUN npm install npm@latest -g && \
-    npm install n -g && \
-    n latest
+RUN npm install n -g && \
+    n latest && \
+    npm install npm@latest -g
 
 # install gradle
 RUN curl -O https://downloads.gradle.org/distributions/gradle-8.3-bin.zip && \
