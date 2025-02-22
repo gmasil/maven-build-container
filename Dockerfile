@@ -25,12 +25,12 @@ RUN npm install n -g && \
     npm install npm@latest -g
 
 # install gradle
-RUN curl -O https://downloads.gradle.org/distributions/gradle-8.3-bin.zip && \
-    unzip gradle-8.3-bin.zip && \
-    rm gradle-8.3-bin.zip && \
-    mv gradle-8.3 /usr/local/bin/
+RUN curl -O https://downloads.gradle.org/distributions/gradle-8.12-bin.zip && \
+    unzip gradle-8.12-bin.zip && \
+    rm gradle-8.12-bin.zip && \
+    mv gradle-8.12 /usr/local/bin/
 
-ENV PATH="$PATH:/usr/local/bin/gradle-8.3/bin"
+ENV PATH="$PATH:/usr/local/bin/gradle-8.12/bin"
 
 ENV DISPLAY=:99
 ENV WEBDRIVER_GECKO_DRIVER=/usr/local/bin/geckodriver
