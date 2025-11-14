@@ -1,9 +1,8 @@
 FROM debian
 
 RUN apt update && apt upgrade -y && DEBIAN_FRONTEND="noninteractive" apt install -y \
-    software-properties-common \
     locales \
-    openjdk-17-jdk \
+    openjdk-21-jdk \
     maven \
     git \
     npm \
@@ -16,9 +15,9 @@ RUN apt update && apt upgrade -y && DEBIAN_FRONTEND="noninteractive" apt install
 
 RUN sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen && locale-gen
 
-ENV LANG en_US.UTF-8
-ENV LANGUAGE en_US:en
-ENV LC_ALL en_US.UTF-8
+ENV LANG=en_US.UTF-8
+ENV LANGUAGE=en_US:en
+ENV LC_ALL=en_US.UTF-8
 
 RUN npm install n -g && \
     n latest && \
@@ -34,7 +33,7 @@ ENV PATH="$PATH:/usr/local/bin/gradle-8.13/bin"
 
 ENV DISPLAY=:99
 ENV WEBDRIVER_GECKO_DRIVER=/usr/local/bin/geckodriver
-ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+ENV JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64
 
 COPY geckodriver /usr/local/bin/geckodriver
 COPY wait-for-service.sh /usr/local/bin/wait-for-service.sh
