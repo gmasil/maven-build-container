@@ -24,10 +24,10 @@ RUN npm install n -g && \
     npm install npm@latest -g
 
 # install gradle
-RUN curl -O https://downloads.gradle.org/distributions/gradle-8.13-bin.zip && \
-    unzip gradle-8.13-bin.zip && \
-    rm gradle-8.13-bin.zip && \
-    mv gradle-8.13 /usr/local/bin/
+RUN curl -O https://downloads.gradle.org/distributions/gradle-9.3.1-bin.zip && \
+    unzip gradle-9.3.1-bin.zip && \
+    rm gradle-9.3.1-bin.zip && \
+    mv gradle-9.3.1 /usr/local/bin/
 
 ENV PATH="$PATH:/usr/local/bin/gradle-8.13/bin"
 
