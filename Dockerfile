@@ -2,7 +2,7 @@ FROM debian
 
 RUN apt update && apt upgrade -y && DEBIAN_FRONTEND="noninteractive" apt install -y \
     locales \
-    openjdk-21-jdk \
+    openjdk-25-jdk \
     maven \
     git \
     npm \
@@ -24,16 +24,16 @@ RUN npm install n -g && \
     npm install npm@latest -g
 
 # install gradle
-RUN curl -O https://downloads.gradle.org/distributions/gradle-9.3.1-bin.zip && \
-    unzip gradle-9.3.1-bin.zip && \
-    rm gradle-9.3.1-bin.zip && \
-    mv gradle-9.3.1 /usr/local/bin/
+RUN curl -L -O https://downloads.gradle.org/distributions/gradle-9.9.1-bin.zip && \
+    unzip gradle-9.9.1-bin.zip && \
+    rm gradle-9.9.1-bin.zip && \
+    mv gradle-9.9.1 /usr/local/bin/
 
-ENV PATH="$PATH:/usr/local/bin/gradle-8.13/bin"
+ENV PATH="$PATH:/usr/local/bin/gradle-9.9.1/bin"
 
 ENV DISPLAY=:99
 ENV WEBDRIVER_GECKO_DRIVER=/usr/local/bin/geckodriver
-ENV JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64
+ENV JAVA_HOME=/usr/lib/jvm/java-25-openjdk-amd64
 
 COPY geckodriver /usr/local/bin/geckodriver
 COPY wait-for-service.sh /usr/local/bin/wait-for-service.sh
